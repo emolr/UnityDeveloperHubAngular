@@ -1,0 +1,19 @@
+{
+  "pluginId": "unity.plugin.angular",
+  "name": "Angular",
+  "version": "0.0.1",
+  "author": "R&D",
+  "repo": "#",
+  "documentation": "#",
+  "main": "dist/index.html",
+  "url": false,
+  "accelerator": "Ctrl+space",
+  "browserWindowSettings": {
+    "frame": false,
+    "title": "Angular",
+    "width": 720,
+    "height": 460,
+    "transparent": true,
+    "vibrancy": "medium-light"
+  }
+}
