@@ -11,7 +11,6 @@
 </form>
 
 <h2>Installed Plugins</h2>
-
 <ul *ngFor="let plugin of installedPlugins">
   <li *ngIf="plugin.url">
     {{plugin.name}} <button (click)="removePlugin(plugin.name)">Remove</button>
