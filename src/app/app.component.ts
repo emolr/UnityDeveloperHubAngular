@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {remote, ipcRenderer} from 'electron';
+import {CreatePluginService} from './services/create-plugin.service';
 
 @Component({
   selector: 'ut-root',
@@ -7,19 +7,28 @@ import {remote, ipcRenderer} from 'electron';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ut';
-  pluginId = 'unity.plugin.angular';
-  serverId: any = ipcRenderer.sendSync('windowManager:getWindowId', 'unity.plugin.utr.server');
-  utrList: any;
+  installedPlugins: any;
+  pluginFormModel = {
+    name: '',
+    url: '',
+    accelerator: ''
+  };
 
-  constructor() {
-    ipcRenderer.on('utr:suggest', (event, arg) => {
-      this.utrList = arg;
+  constructor(public createPluginService: CreatePluginService) {
+    this.installedPlugins = this.createPluginService.getInstalledPlugins();
+  }
+
+  onSubmit() {
+    this.createPluginService.createPlugin(this.pluginFormModel, () => {
+      alert('plugin created');
+      this.installedPlugins = this.createPluginService.getInstalledPlugins();
     });
   }
 
-  sendArgToUtr() {
-    remote.BrowserWindow.fromId(this.serverId).webContents.send('utr:suggest', {arg: '10', pluginId: this.pluginId});
+  removePlugin(name: string) {
+    this.createPluginService.removePlugin(name).then(msg => {
+      alert(`${name} is successfully deleted`);
+      this.installedPlugins = this.createPluginService.getInstalledPlugins();
+    });
   }
-
 }

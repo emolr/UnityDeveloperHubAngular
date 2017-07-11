@@ -7,7 +7,7 @@
   "documentation": "#",
   "main": "dist/index.html",
   "url": false,
-  "accelerator": "Ctrl+space",
+  "accelerator": "Ctrl+a",
   "browserWindowSettings": {
     "frame": false,
     "title": "Angular",
