@@ -37,7 +37,7 @@
     "codelyzer": "~3.0.1",
     "css-loader": "^0.28.1",
     "cssnano": "^3.10.0",
-    "electron": "^1.6.11",
+    "electron": "^1.8.8",
     "exports-loader": "^0.6.3",
     "file-loader": "^0.10.0",
     "istanbul-instrumenter-loader": "^2.0.0",
